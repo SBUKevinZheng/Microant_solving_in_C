@@ -87,7 +87,7 @@ void markStartingPoint(int **maze, int rows, int cols)
         }
     }
 }
-//check the surrouding
+//check the surrouding to see possible directions to go
 char check_surroundings(int** maze, int x, int y)
 {
     if(CWL(maze, x, y) == 1)
@@ -167,7 +167,7 @@ int main() {
             y = previous -> y;
             break;
 
-            case 'b': 
+            case 'b': //Back
             move_F(&x);
             MARK(maze,x,y);
             direction = check_surroundings(maze,x,y);
@@ -183,7 +183,7 @@ int main() {
                 }
             }
             break;
-            case 'f':
+            case 'f': //foward
             move_B(&x);
             MARK(maze,x,y);
             direction = check_surroundings(maze,x,y);
@@ -200,7 +200,7 @@ int main() {
             }
             break;
 
-            case 'r': 
+            case 'r': //right
             move_R(&y);
             MARK(maze,x,y);
             direction = check_surroundings(maze,x,y);
@@ -217,7 +217,7 @@ int main() {
             }
             break;
 
-            case 'l':
+            case 'l': //left
             move_L(&y);
             MARK(maze,x,y);
             direction = check_surroundings(maze,x,y);
@@ -236,7 +236,7 @@ int main() {
         }  
     }
     printf("\ncoordinate: [%d,%d]\n", x, y);
-
+    //printf out maze to see where it ran
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             printf(" %d ", maze[i][j]);
@@ -244,7 +244,7 @@ int main() {
         printf("\n");
   }
 
-  for(int i = 0; i < position -> max; i++)
+  for(int i = 0; i < position -> max; i++)  //print out the coordinates it has been to
   {
     printf("\ncoordinate: [%d,%d]\n", position[i].x, position[i].y);
   }

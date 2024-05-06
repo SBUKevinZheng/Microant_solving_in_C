@@ -156,7 +156,7 @@ int CWB(int** maze, int x, int y)
 
 
 
-//current position is free
+//current direction is free and moves until it meets a wall
 void BJPI(int** maze, int* x, int* y, int max_row, int max_col, char direction)
 {
     switch(direction)
@@ -199,7 +199,7 @@ void BJPI(int** maze, int* x, int* y, int max_row, int max_col, char direction)
         break;
     }
 }
-
+//if position is free moves one step towards the direction its free
 void CJPI(int** maze, int* x, int* y,int max_row, int max_col, char direction)
 {
     switch(direction)
@@ -235,6 +235,7 @@ void CJPI(int** maze, int* x, int* y,int max_row, int max_col, char direction)
     MARK(maze,(*x),(*y));
 }
 
+//goes back to the previous position
 stack* BACKTRACK()
 {
     if(is_StackEmpty())
